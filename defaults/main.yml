@@ -1,3 +1,8 @@
 ---
+forgeo_runner__user: 'forgeo_runner'
+forgeo_runner__group: 'forgeo_runner'
+# forgeo_runner__groups
+forgeo_runner__user_home: '/var/lib/forgeo-runner'
+
 # should we do a version check? (recomended)
 submodules_versioncheck: false

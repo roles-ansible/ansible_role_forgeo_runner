@@ -1,7 +1,10 @@
-[![Ansible Galaxy](https://ansible.l3d.space/svg/$namespace.$role.svg)](https://galaxy.ansible.com/ui/standalone/roles/$namespace/$role/)
-[![BSD-3 Clause](https://ansible.l3d.space/svg/$namespace.$role_license.svg)](LICENSE)
-[![Maintainance](https://ansible.l3d.space/svg/$namespace.$role_maintainance.svg)](https://ansible.l3d.space/#$namespace.$role)
+[![Ansible Galaxy](https://ansible.l3d.space/svg/roles-ansible.forgeo_runner.svg)](https://galaxy.ansible.com/ui/standalone/roles/roles-ansible/forgeo_runner/)
+[![BSD-3 Clause](https://ansible.l3d.space/svg/roles-ansible.forgeo_runner_license.svg)](LICENSE)
+[![Maintainance](https://ansible.l3d.space/svg/roles-ansible.forgeo_runner_maintainance.svg)](https://ansible.l3d.space/#roles-ansible.forgeo_runner)
 
- ansible_role_template
+ ansible role forgeo_runner
 =======================
-Template for Ansible roles
+Ansible role to install and Setup forgeo runner. (Work in Progress...)
+
+https://forgejo.org/docs/next/admin/actions/
+
