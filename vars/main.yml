@@ -1,4 +1,16 @@
 ---
+forgejo_runner__releases_latest: 'https://code.forgejo.org/api/v1/repos/forgejo/runner/releases?limit=1'
+forgejo_runner__go_arch_map:
+  x86_64: 'amd64'
+  aarch64: 'arm64'
+  armv7l: 'armv7'
+  armv6l: 'armv6'
+  armv5l: 'armv5'
+  ppc64le: 'ppc64le'
+  s390x: 's390x'
+forgejo_runner__arch: "{{ forgejo_runner__go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+forgejo_runner__git_repo: 'https://code.forgejo.org/forgejo/runner'
+
 # versionscheck
 playbook_version_number: 03   # should be a integer
-playbook_version_path: 'role-l3d.git-forgeo_runner.version'
+playbook_version_path: 'role-l3d.git-forgejo_runner.version'

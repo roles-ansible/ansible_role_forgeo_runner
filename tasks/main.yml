@@ -4,6 +4,14 @@
     file: 'versioncheck.yml'
   when: submodules_versioncheck | bool
 
-- name: Create User ans Group for forgeo runner
+- name: Create User ans Group for forgejo runner
   ansible.builtin.include_tasks:
     file: 'create_user.yml'
+
+- name: Set forgejo runner version
+  ansible.builtin.include_tasks:
+    file: 'set_runner_version.yml'
+
+- name: Install forgejo runner binary
+  ansible.builtin.include_tasks:
+    file: 'install_runner.yml'
