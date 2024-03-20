@@ -15,7 +15,7 @@
       register: _runner_tmp
 
     - name: Download forgejo-runner binary
-      get_url:
+      ansible.builtin.get_url:
         url: "{{ forgejo_runner__dl_url }}/{{ forgejo_runner__filename }}"
         dest: "{{ _runner_tmp.path }}/{{ forgejo_runner__filename }}"
         mode: "0755"
@@ -23,7 +23,7 @@
         group: "{{ forgejo_runner__group }}"
 
     - name: Download forgejo-runner.asc file
-      get_url:
+      ansible.builtin.get_url:
         url: "{{ forgejo_runner__dl_url }}/{{ forgejo_runner__filename }}.asc"
         dest: "{{ _runner_tmp.path }}/{{ forgejo_runner__filename }}.asc"
         mode: "0644"
