@@ -8,3 +8,5 @@ Ansible role to install and Setup forgeo runner. (Work in Progress...)
 
 https://forgejo.org/docs/next/admin/actions/
 
+
+Steps

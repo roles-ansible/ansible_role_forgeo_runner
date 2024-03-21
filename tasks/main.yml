@@ -15,3 +15,12 @@
 - name: Install forgejo runner binary
   ansible.builtin.include_tasks:
     file: 'install_runner.yml'
+
+- name: Configure forgejo runner
+  ansible.builtin.include_tasks:
+    file: 'configure_runner.yml'
+
+- name: Start forgejo runner as systemd service
+  ansible.builtin.include_tasks:
+    file: 'systemd.yml'
+  when: ansible_service_mgr == "systemd"
