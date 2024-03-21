@@ -1,0 +1,30 @@
+---
+galaxy_info:
+  role_name: forgejo_runner
+  author: l3d
+  description: Ansible role to setup forgejo runner actionse.
+  license: "MIT"
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - forgejo
+    - runner
+    - action
+    - git
+    - development
+    - selfhosted
+    - gitserver
+    - linux
+dependencies: []

@@ -12,10 +12,6 @@
 - name: Register Forgejo runner
   ansible.builtin.command:
     chdir: "{{ forgejo_runner__user_home }}"
-    cmd: |
-      {{ forgejo_runner__full_executable_path }} register --no-interactive \
-        --token '{{ forgejo_runner__token }}' \
-        --instance '{{ forgejo_runner__instance_address }}' \
-        --name '{{ inventory_hostname }}@ansible'
+    cmd: "{{ forgejo_runner__full_executable_path }} register --no-interactive --token '{{ forgejo_runner__token }}' --instance '{{ forgejo_runner__instance_address }}' --name '{{ inventory_hostname }}@ansible'"
     creates: "{{ forgejo_runner__user_home }}/.runner"
   become: true
