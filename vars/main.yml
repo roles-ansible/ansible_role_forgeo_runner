@@ -12,5 +12,5 @@ forgejo_runner__arch: "{{ forgejo_runner__go_arch_map[ansible_architecture] | de
 forgejo_runner__git_repo: 'https://code.forgejo.org/forgejo/runner'
 
 # versionscheck
-playbook_version_number: 03   # should be a integer
+playbook_version_number: 04   # should be a integer
 playbook_version_path: 'role-l3d.git-forgejo_runner.version'
