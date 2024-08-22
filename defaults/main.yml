@@ -10,6 +10,7 @@ forgejo_runner__gpg_id: 'EB114F5E6C0DC2BCDD183550A4B61A2DC5923710'
 forgejo_runner__instance_address: ''
 forgejo_runner__token: ''
 forgejo_runner__mode: "daemon"
+forgejo_runner__offline_registration: false
 
 # should we do a version check? (recomended)
 submodules_versioncheck: false
