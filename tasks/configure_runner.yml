@@ -37,4 +37,3 @@
     owner: "{{ forgejo_runner__user }}"
     group: "{{ forgejo_runner__group }}"
     mode: '0644'
-    
