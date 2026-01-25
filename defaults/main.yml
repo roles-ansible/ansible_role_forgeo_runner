@@ -6,6 +6,8 @@ forgejo_runner__group: 'forgejo_runner'
 forgejo_runner__user_home: '/var/lib/forgejo-runner'
 forgejo_runner__full_executable_path: '/usr/local/bin/forgejo_runner'
 forgejo_runner__gpg_id: 'EB114F5E6C0DC2BCDD183550A4B61A2DC5923710'
+# if using local file from orchestrator eg gpg network access is filtered
+# forgejo_runner_gpg_key: EB114F5E6C0DC2BCDD183550A4B61A2DC5923710.asc
 
 forgejo_runner__instance_address: ''
 forgejo_runner__token: ''

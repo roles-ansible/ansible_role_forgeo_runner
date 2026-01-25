@@ -1,7 +1,7 @@
 ---
 - name: "Setup systemd service"
   become: true
-  when: ansible_os_family == "Debian"
+  when: ansible_facts['os_family'] == "Debian"
   ansible.builtin.template:
     src: 'forgejo_runner.service.j2'
     dest: '/lib/systemd/system/forgejo-runner.service'
@@ -24,5 +24,5 @@
     name: 'forgejo-runner'
     state: started
     enabled: true
-  when: ansible_service_mgr == "systemd"
+  when: ansible_facts['service_mgr'] == "systemd"
   notify: 'systemctl restart forgejo-runner'

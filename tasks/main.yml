@@ -23,4 +23,4 @@
 - name: Start forgejo runner as systemd service
   ansible.builtin.include_tasks:
     file: 'systemd.yml'
-  when: ansible_service_mgr == "systemd"
+  when: ansible_facts['service_mgr'] == "systemd"
