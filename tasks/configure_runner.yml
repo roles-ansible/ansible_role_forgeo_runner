@@ -4,36 +4,23 @@
     msg: "Please set forgejo_runner__instance_address"
   when: forgejo_runner__instance_address == ''
 
+- name: Make Sure Forgejo runner uuid is set
+  ansible.builtin.fail:
+    msg: "Please set forgejo_runner__uuid"
+  when: forgejo_runner__uuid == ''
+
 - name: Make Sure Forgejo runner token is set
   ansible.builtin.fail:
     msg: "Please set forgejo_runner__token"
   when: forgejo_runner__token == ''
-
-- name: Check if website is reachable
-  ansible.builtin.uri:
-    url: "{{ forgejo_runner__instance_address }}"
-    method: GET
-
-- name: Register Forgejo runner
+  
+- name: Create config with correct permissions
   become: true
-  ansible.builtin.command:
-    chdir: "{{ forgejo_runner__user_home }}"
-    cmd: "{{ forgejo_runner__full_executable_path }} register --no-interactive --token '{{ forgejo_runner__token }}' --instance '{{ forgejo_runner__instance_address }}' --name '{{ inventory_hostname }}@ansible'"
-    creates: "{{ forgejo_runner__user_home }}/.runner"
-  when: not forgejo_runner__offline_registration | bool
-
-- name: Register Forgejo runner via offline registration
-  become: true
-  ansible.builtin.command:
-    chdir: "{{ forgejo_runner__user_home }}"
-    cmd: "{{ forgejo_runner__full_executable_path }} create-runner-file --secret '{{ forgejo_runner__token }}' --instance '{{ forgejo_runner__instance_address }}' --name '{{ inventory_hostname }}@ansible'"
-    creates: "{{ forgejo_runner__user_home }}/.runner"
-  when: forgejo_runner__offline_registration | bool
-
-- name: Change Owner of config
-  become: true
-  ansible.builtin.file:
-    path: "{{ forgejo_runner__user_home }}/.runner"
+  ansible.builtin.template:
+    src: "forgejo_config.yaml.j2"
+    dest: "{{ forgejo_runner__user_home }}/config.yaml"
     owner: "{{ forgejo_runner__user }}"
     group: "{{ forgejo_runner__group }}"
-    mode: '0644'
+    mode: '0600'
+  notify:
+    - 'systemctl restart forgejo-runner'

@@ -17,19 +17,22 @@ This role requires either to be able to start docker containers as ``forgejo_run
 Variables
 -----------
 
-| Variable                                 | Value                                        | Description                                                        |
-| ---------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
-| ``forgejo_runner__version``              | ``latest``                                   | Forgejo runner version or latest to use latest                     |
-| ``forgejo_runner__user``                 | ``forgejo_runner``                           | Forejo runner UNIX User                                            |
-| ``forgejo_runner__group``                | ``forgejo_runner``                           | Forgejo runner UNIX Group                                          |
-| ``forgejo_runner__user_home``            | ``/var/lib/forgejo-runner``                  | Unix Home and working directory                                    |
-| ``forgejo_runner__full_executable_path`` | ``/usr/local/bin/forgejo_runner``            | Path for executable binary                                         |
-| ``forgejo_runner__gpg_id``               | ``EB114F5E6C0DC2BCDD183550A4B61A2DC5923710`` | Forgejo runneer GPG Key                                            |
-| ``forgejo_runner__instance_address``     |                                              | Forgejo Instance Address                                           |
-| ``forgejo_runner__token``                |                                              | Token for runner of your forgejo instance                          |
-| ``forgejo_runner__offline_registration`` | ```false```                                  | Forgejo runner registration method                                 |
-| ``forgejo_runner__mode``                 | ``daemon``                                   | Forgejo runner mode. Change to ``exec`` for local Runner execution |
-| ``submodules_versioncheck``              | ``false``                                    | optional simple version check                                      |
+| Variable                                 | Value                                        | Description                                                                                    |
+|------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------|
+| ``forgejo_runner__version``              | ``latest``                                   | Forgejo runner version or latest to use latest                                                 |
+| ``forgejo_runner__user``                 | ``forgejo_runner``                           | Forejo runner UNIX User                                                                        |
+| ``forgejo_runner__group``                | ``forgejo_runner``                           | Forgejo runner UNIX Group                                                                      |
+| ``forgejo_runner__user_home``            | ``/var/lib/forgejo-runner``                  | Unix Home and working directory                                                                |
+| ``forgejo_runner__full_executable_path`` | ``/usr/local/bin/forgejo_runner``            | Path for executable binary                                                                     |
+| ``forgejo_runner__gpg_id``               | ``EB114F5E6C0DC2BCDD183550A4B61A2DC5923710`` | Forgejo runneer GPG Key                                                                        |
+| ``forgejo_runner__instance_address``     |                                              | Forgejo Instance Address                                                                       |
+| ``forgejo_runner__uuid``                 |                                              | UUID of generated runner connection of your forgejo instance                                   |
+| ``forgejo_runner__token``                |                                              | Token for runner of your forgejo instance                                                      |
+| ``forgejo_runner__labels``               |                                              | Labels that will be set on forgejo runner                                                      |
+| ``forgejo_runner__container_options``    |                                              | Container options to set for forgejo runner (e.g. --device /dev/fuse)                          |
+| ``forgejo_runner__docker_host``          | ``-``                                        | Container socket connection string. E.g.: unix:///run/user/<uid>/podman/podman.sock for podman |
+| ``forgejo_runner__mode``                 | ``daemon``                                   | Forgejo runner mode. Change to ``exec`` for local Runner execution                             |
+| ``submodules_versioncheck``              | ``false``                                    | optional simple version check                                                                  |
 
 Contribution
 --------------
