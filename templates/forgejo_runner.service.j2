@@ -8,7 +8,7 @@ Type=simple
 User={{ forgejo_runner__user }}
 Group={{ forgejo_runner__group }}
 WorkingDirectory={{ forgejo_runner__user_home }}
-ExecStart={{ forgejo_runner__full_executable_path }} {{ forgejo_runner__mode }}
+ExecStart={{ forgejo_runner__full_executable_path }} {{ forgejo_runner__mode }} -c config.yaml
 Restart=always
 RestartSec=10s
 
