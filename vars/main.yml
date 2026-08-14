@@ -8,7 +8,7 @@ forgejo_runner__go_arch_map:
   armv5l: 'armv5'
   ppc64le: 'ppc64le'
   s390x: 's390x'
-forgejo_runner__arch: "{{ forgejo_runner__go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+forgejo_runner__arch: "{{ forgejo_runner__go_arch_map[ansible_facts.architecture] | default(ansible_facts.architecture) }}"
 forgejo_runner__git_repo: 'https://code.forgejo.org/forgejo/runner'
 
 # versionscheck
