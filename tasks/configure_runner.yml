@@ -13,7 +13,7 @@
   ansible.builtin.fail:
     msg: "Please set forgejo_runner__token"
   when: forgejo_runner__token == ''
-  
+
 - name: Create config with correct permissions
   become: true
   ansible.builtin.template:
