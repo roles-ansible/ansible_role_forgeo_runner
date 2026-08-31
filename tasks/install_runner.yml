@@ -1,12 +1,8 @@
 ---
-- name: Install forgejo block
+- name: "Install forgejo runner {{ forgejo_runner__active_version.stdout[1:] }} to {{ forgejo_runner__version_target }}, if not the same"
   when: (not ansible_check_mode and (forgejo_runner__active_version.stdout[1:] != forgejo_runner__version_target))
   become: true
   block:
-    - name: Info what we do
-      ansible.builtin.debug:
-        msg: "Updating forgejo Runner {{ forgejo_runner__active_version.stdout[1:] }} to {{ forgejo_runner__version_target }}"
-        verbosity: 1
 
     - name: Create temporary folder
       ansible.builtin.tempfile:
@@ -89,3 +85,8 @@
       ansible.builtin.fail:
         msg: Signature verification of forgejo runner failed
       when: _runner_signature.failed
+
+    - name: Delete temporary download folder
+      ansible.builtin.file:
+        state: absent
+        path: "runner_tmp.path"

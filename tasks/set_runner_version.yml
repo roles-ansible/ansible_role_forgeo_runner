@@ -16,29 +16,24 @@
         return_content: true
       register: forgejo_runner__remote_metadata
       become: false
-      when: not ansible_check_mode
-
-    - name: "Fail if running in check mode without versions set."
-      ansible.builtin.fail:
-        msg: |
-          "You are running this playbook in check mode:
-          Please set the  forgejo runner version with the variable 'forgejo_runner__version', because the URI module cannot detect the latest version in this mode."
-      when: ansible_check_mode and (forgejo_runner__version == 'latest')
 
     - name: "Set fact latest forgejo runner release"
       ansible.builtin.set_fact:
         forgejo_runner__remote_version: "{{ forgejo_runner__remote_metadata.json.0.tag_name[1:] }}"
-      when: not ansible_check_mode
 
-    - name: "Set forgejo runner version target (latest)"
+    - name: "Set forgejo runner version target to latest = {{ forgejo_runner__remote_version }}"
       ansible.builtin.set_fact:
         forgejo_runner__version_target: "{{ forgejo_runner__remote_version }}"
-      when: not ansible_check_mode
 
-- name: "Set forgejo runner version target {{ forgejo_runner__version }}"
+- name: "Set forgejo runner version target to {{ forgejo_runner__version }}, if not defined"
   ansible.builtin.set_fact:
     forgejo_runner__version_target: "{{ forgejo_runner__version }}"
   when: forgejo_runner__version != "latest"
+
+- name: Get minimum amount of system information, if disabled
+  ansible.builtin.setup:
+    gather_subset: architecture
+  when: ansible_architecture is not defined
 
 - name: "Generate forgejo runner download URL"
   ansible.builtin.set_fact:
